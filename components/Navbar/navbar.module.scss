@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+.nav {
+  height: 60px;
+  width: 90%;
+  position: absolute;
+  z-index: 1;
+  background-color: #ffffff8c;
+  top: 3%;
+  left: 5%;
+  display: flex;
+  padding: 5px 20px;
+  clip-path: polygon(0 0, 98% 0, 100% 50%, 100% 100%, 2% 100%, 0 60%);
+  border: 2px solid #39FF14;
+  .Options {
+    color: #FFFFFF;
+    font-size: 23px;
+    font-family: "Audiowide", sans-serif;
+    height: 50px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
