@@ -1,15 +1,16 @@
-import { forwardRef, Ref } from 'react';
+import React, { forwardRef, Ref } from 'react';
 import styles from './style.module.scss';
 import Magnetic from '../magnetic';
 
 interface HeaderProps {
-  // Define any other props that might be passed to Header
-  // Example: title?: string;
+  onClick?: () => void; // Add this line to accept an onClick prop
 }
 
-const Header = forwardRef<HTMLDivElement, HeaderProps>(function index(props, ref: Ref<HTMLDivElement>) {
+const Header = forwardRef<HTMLDivElement, HeaderProps>(function Header(props, ref: Ref<HTMLDivElement>) {
+  const { onClick, ...rest } = props; 
+
   return (
-    <div className={styles.header}>
+    <div className={styles.header} onClick={onClick} {...rest}>
       <Magnetic>
         <div className={styles.burger}>
           <div ref={ref} className={styles.bounds}></div>

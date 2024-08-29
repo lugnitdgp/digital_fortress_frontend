@@ -1,3 +1,4 @@
+
 .main{
     height: 100vh;
     width: 100vw;
@@ -7,4 +8,38 @@
     background-position: center;
     background-size: 103% 128%;
     position: relative;
+    .head{
+        height: 120px;
+        width: 58%;
+        font-size: 100px;
+        color: white;
+        position: absolute;
+        top: 15%;
+        left: 26%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .Footer{
+        height: 90px;
+        width: 56%;
+        font-size: 35px;
+        color: white;
+        position: absolute;
+        bottom: 5%;
+        left: 23%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:space-between;
+        font: inter;
+        font-weight: 800;
+        .logos{
+            height: 30px;
+            width: 175px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
 }
