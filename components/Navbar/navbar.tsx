@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import Header from "../header";
 import StickyCursor from "../stickyCursor/";
 import styles from "./navbar.module.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXing } from '@fortawesome/free-brands-svg-icons'; // Example icon
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXing } from "@fortawesome/free-brands-svg-icons"; // Example icon
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -31,27 +31,61 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className={`${styles.nav} ${isSidebarOpen ? styles.hidden : ''}`}>
+      <div className={`${styles.nav} ${isSidebarOpen ? styles.hidden : ""}`}>
         <Header ref={stickyElement} onClick={handleHeaderClick} />
         <StickyCursor stickyElement={stickyElement} />
         <div className={styles.Options}>
-          <h1>HOME</h1>
+          <li className={styles.contentitem}>
+            <a href="#" className={styles.linklinkhelike}>
+              <span>HOME</span>
+            </a>
+          </li>
+          <li className={styles.contentitem}>
+            <a href="#" className={styles.linklinkhelike}>
+              <span>RULES</span>
+            </a>
+          </li>
+          <li className={styles.contentitem}>
+            <a href="#" className={styles.linklinkhelike}>
+              <span>LEADERBOARD</span>
+            </a>
+          </li>
+
+          {/*<h1>HOME</h1>
           <h1>RULES</h1>
-          <h1>LEADERBOARD</h1>
+          <h1>LEADERBOARD</h1>*/}
         </div>
       </div>
-      <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>
+      <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ""}`}>
         <div className={styles.sidebarContent}>
-          <FontAwesomeIcon 
-            className={styles.close} 
-            icon={faXing} 
-            style={{ cursor: 'pointer' }} 
-            onClick={handleHeaderClick} 
+          <FontAwesomeIcon
+            className={styles.close}
+            icon={faXing}
+            style={{ cursor: "pointer" }}
+            onClick={handleHeaderClick}
           />
           <div className={styles.navOptions}>
-            <h1 className={`${styles.btn5} ${isPulseActive ? styles.pulseActive : ''}`}>HOME</h1>
-            <h1 className={`${styles.btn5} ${isPulseActive ? styles.pulseActive : ''}`}>RULES</h1>
-            <h1 className={`${styles.btn5} ${isPulseActive ? styles.pulseActive : ''}`}>LEADERBOARD</h1>
+            <h1
+              className={`${styles.btn5} ${
+                isPulseActive ? styles.pulseActive : ""
+              }`}
+            >
+              HOME
+            </h1>
+            <h1
+              className={`${styles.btn5} ${
+                isPulseActive ? styles.pulseActive : ""
+              }`}
+            >
+              RULES
+            </h1>
+            <h1
+              className={`${styles.btn5} ${
+                isPulseActive ? styles.pulseActive : ""
+              }`}
+            >
+              LEADERBOARD
+            </h1>
           </div>
         </div>
       </div>

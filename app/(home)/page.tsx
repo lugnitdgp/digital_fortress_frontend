@@ -7,11 +7,13 @@ import Navbar from "@/components/Navbar/navbar";
 import { FaGithub, FaInstagram, FaLinkedin, FaGoogle } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FloatingDock } from "@/components/floatingdock/floatingicons";
+import { Meteors } from "@/components/Meteor/meteor";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [textDigital, setTextDigital] = useState("DIGITAL");
   const [textFortress, setTextFortress] = useState("FORTRESS");
+  const [showMeteors, setShowMeteors] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -30,7 +32,7 @@ export default function Home() {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let frame = 0;
 
-    const randomizeText = (txt) => {
+    const randomizeText = (txt: string) => {
       return txt
         .split("")
         .map(() => chars[Math.floor(Math.random() * chars.length)])
@@ -48,7 +50,10 @@ export default function Home() {
         setTextDigital("DIGITAL");
         setTextFortress("FORTRESS");
       }
-    }, 10);
+      setTimeout(() => {
+        setShowMeteors(true); 
+      }, 850);
+    }, 30);
   };
 
   const socialMediaItems = [
@@ -80,6 +85,7 @@ export default function Home() {
         <Loader />
       ) : (
         <>
+       {showMeteors && <Meteors className={styles.meteor} />}
           <Navbar />
           <div className={styles.head}>
             <h1 className={styles.animatedText}>
@@ -88,12 +94,15 @@ export default function Home() {
               <span className={styles.fortressText}>{textFortress}</span>
             </h1>
           </div>
-          <div className={styles.buttonContainer}>
-            <button type="button" className={styles.iconButton}>
-              <FaGoogle />
-            </button>
-          </div>
-          <div className={styles.login}></div>
+          {showMeteors &&  <div className={styles.backbutton}>
+          <FaGoogle size={30}/>
+            <div className={styles.buttonContainer1}>
+              <button id='work' type="button" name="Hover" className={styles.iconButton}>
+                <FaGoogle size={27}/>
+              </button>
+            </div>
+          </div>}
+         
           <div className={styles.Footer}>
             <h1>CREATED BY GNU/LINUX USERS' GROUP</h1>
             <FloatingDock items={socialMediaItems} />
