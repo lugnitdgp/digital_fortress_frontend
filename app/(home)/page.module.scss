@@ -1,26 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 
-.main{
+.main {
     height: 100vh;
     width: 100vw;
-    background-image: url(../../public/Homebackground.jpeg);
+    background-image: url('/Extentedbackground.svg'); /* Corrected path */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-size: 103% 128%;
+    background-size: 100% 112%;
     position: relative;
-    .head{
+
+    .head {
         height: 120px;
-        width: 58%;
+        width: 65%;
         font-size: 100px;
         color: white;
         position: absolute;
         top: 15%;
-        left: 26%;
+        left: 24%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        font-family: "Audiowide", sans-serif;
     }
-    .Footer{
+
+    .Footer {
         height: 90px;
         width: 56%;
         font-size: 35px;
@@ -31,10 +35,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content:space-between;
-        font: inter;
+        justify-content: space-between;
+        font-family: 'Inter', sans-serif; /* Updated font-family declaration */
         font-weight: 800;
-        .logos{
+        .logos {
             height: 30px;
             width: 175px;
             display: flex;
