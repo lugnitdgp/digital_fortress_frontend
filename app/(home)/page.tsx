@@ -30,7 +30,7 @@ export default function Home() {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let frame = 0;
 
-    const randomizeText = (txt) => {
+    const randomizeText = (txt : string) => {
       return txt
         .split("")
         .map(() => chars[Math.floor(Math.random() * chars.length)])

@@ -4,6 +4,7 @@ import StickyCursor from "../stickyCursor/";
 import styles from "./navbar.module.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXing } from '@fortawesome/free-brands-svg-icons'; // Example icon
+import Link from "next/link";
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -35,9 +36,9 @@ export default function Navbar() {
         <Header ref={stickyElement} onClick={handleHeaderClick} />
         <StickyCursor stickyElement={stickyElement} />
         <div className={styles.Options}>
-          <h1>HOME</h1>
-          <h1>RULES</h1>
-          <h1>LEADERBOARD</h1>
+          <Link href="/"><h1>HOME</h1></Link>
+          <Link href="/rules"><h1>RULES</h1></Link>
+          <Link href="/leaderboard"><h1>LEADERBOARD</h1></Link>
         </div>
       </div>
       <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>
