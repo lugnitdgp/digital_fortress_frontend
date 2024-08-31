@@ -2,8 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 import Header from "../header";
 import StickyCursor from "../stickyCursor/";
 import styles from "./navbar.module.scss";
+<<<<<<< HEAD
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXing } from "@fortawesome/free-brands-svg-icons"; // Example icon
+=======
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXing } from '@fortawesome/free-brands-svg-icons'; // Example icon
+import Link from "next/link";
+>>>>>>> 137a176ee44b0d9b680febdbf7eb8857586f21f4
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -35,6 +41,7 @@ export default function Navbar() {
         <Header ref={stickyElement} onClick={handleHeaderClick} />
         <StickyCursor stickyElement={stickyElement} />
         <div className={styles.Options}>
+<<<<<<< HEAD
           <li className={styles.contentitem}>
             <a href="#" className={styles.linklinkhelike}>
               <span>HOME</span>
@@ -54,6 +61,11 @@ export default function Navbar() {
           {/*<h1>HOME</h1>
           <h1>RULES</h1>
           <h1>LEADERBOARD</h1>*/}
+=======
+          <Link href="/"><h1>HOME</h1></Link>
+          <Link href="/rules"><h1>RULES</h1></Link>
+          <Link href="/leaderboard"><h1>LEADERBOARD</h1></Link>
+>>>>>>> 137a176ee44b0d9b680febdbf7eb8857586f21f4
         </div>
       </div>
       <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ""}`}>
