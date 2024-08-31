@@ -3,7 +3,7 @@
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;
-  mix-blend-mode: difference;
+  //mix-blend-mode: difference;
   z-index: 1;
   .burger {
     position: relative;
@@ -18,7 +18,7 @@
       content: "";
       width: 30px;
       height: 2px;
-      mix-blend-mode: difference;
+     // mix-blend-mode: difference;
       background-color: rgb(255, 255, 255);
     }
   }

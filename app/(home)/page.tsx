@@ -52,8 +52,8 @@ export default function Home() {
       }
       setTimeout(() => {
         setShowMeteors(true); 
-      }, 850);
-    }, 30);
+      }, 1140);
+    }, 40);
   };
 
   const socialMediaItems = [
@@ -89,9 +89,9 @@ export default function Home() {
           <Navbar />
           <div className={styles.head}>
             <h1 className={styles.animatedText}>
-              <span className={styles.digitalText}>{textDigital}</span>
+              <span className={styles.digitalText} >{textDigital}</span>
               <span className={styles.space}> </span>
-              <span className={styles.fortressText}>{textFortress}</span>
+              <span className={styles.fortressText}  >{textFortress}</span>
             </h1>
           </div>
           {showMeteors &&  <div className={styles.backbutton}>

@@ -1,11 +1,15 @@
 // Import external fonts
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100');
-
+@import url('https://db.onlinewebfonts.com/c/1d45a7e720d9ec9abd6743cc20fa7c98?family=BreakTheCode');
+@import url('https://db.onlinewebfonts.com/c/9059f4e41fb7c92170641fe975087f08?family=Scifi+Adventure');
+@import url('https://db.onlinewebfonts.com/c/7b625b4facc3b08ddc36375715334f0d?family=prostf');
+@import url('https://db.onlinewebfonts.com/c/e7322a6673613ab13604fadda3d20e56?family=VALORANT');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 // Define custom font
 @font-face {
   font-family: 'BreakTheCode'; // Unique name for the font
-  src: url('../../components/assets/fonts/breakthecode.ttf') format('truetype'); // Path to font file
+  src: url('../../components/assets/fonts/Breakthecode.ttf') format('truetype'); // Path to font file
   font-weight: normal;
   font-style: normal;
 }
@@ -29,21 +33,27 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-size: 100% 112%;
   position: relative;
 
   .head {
-    height: 120px;
+    height: 7px;
     width: 70%;
-    font-size: 100px;
-    color: white;
+    font-size: 6rem;
+    color: rgb(204, 248, 179);
+    text-shadow: 
+    0 0 5px rgba(212, 255, 0, 0.3),  /* Light yellow-green glow */
+    0 0 8px rgba(212, 255, 0, 0.3),  /* Larger glow */
+    0 0 11px rgba(170, 255, 0, 0.4), /* Even larger glow */
+    0 0 15px rgba(170, 255, 0, 0.4), /* Even larger glow */
+    0 0 19px rgba(153, 255, 0, 0.5), /* Largest glow */
+    0 0 30px rgba(153, 255, 0, 0.5); /* Largest glow */
     position: absolute;
-    top: 15%;
-    left: 19%;
+    top: 19%;
+    left: 17%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'BreakTheCode', 'Audiowide', sans-serif; // Apply the custom font here
+    font-family: 'Audiowide', sans-serif; // Apply the custom font here
     white-space: nowrap;
 
     .animatedText {
@@ -57,7 +67,7 @@
 
       .space {
         display: inline-block;
-        width: 168px;
+        width: 11rem;
       }
     }
   }
@@ -81,21 +91,22 @@
   .backbutton {
     position: relative;
     height: 75px;
-    width: 85px;
-    background-color: rgb(240, 238, 138);
+    width: 75px;
+    background-color: rgb(238, 255, 0);
     top: 40%;
     left: 47%;
     z-index: 1; // Ensure it's below buttonContainer1
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 50%;
+    border: 6px rgb(21, 255, 0) solid;
 
     .buttonContainer1 {
       position: absolute;
-      top: -59px; // Adjust this to move it above the backbutton
-      left: 0;
-      width: 85px;
+      top: -63px; // Adjust this to move it above the backbutton
+      left: 1;
+      width: 75px;
       height: 75px;
       margin-left: auto;
       margin-right: auto;
@@ -106,7 +117,7 @@
       font-weight: 300;
       transition: 0.5s;
       letter-spacing: 1px;
-      border-radius: 8px;
+      border-radius: 50%;
       z-index: 2; // Ensure it's above the backbutton
 
       button {
