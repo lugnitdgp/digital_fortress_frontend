@@ -6,7 +6,7 @@
     z-index: 2;
     pointer-events: none;
     .description{
-        background-color: #ec4e39;
+        background-color: #2CFF05;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -14,13 +14,14 @@
         padding-right: 10%;
         clip-path: inset(50% 0 50%);
         transition: clip-path .4s;
+        
         p{
             &:nth-of-type(1){
                 color: #010101;
                 text-transform: uppercase;
                 font-weight: 700;
-                font-size: 8vw;
-                line-height: 7.5vw;
+                font-size: 6vw;
+                line-height: 5.5vw;
                 margin: 0px;
                 position: relative;
                 z-index: 1;
