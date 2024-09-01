@@ -29,7 +29,8 @@ function Title({data, setSelectedProject}: any) {
     const clip = useMotionTemplate`inset(0 ${clipProgress}% 0 0)`;
     
     return (
-        <div ref={container} className={styles.title}>
+    
+  <div ref={container} className={styles.title}>
             <div 
                 className={styles.wrapper}
                 onMouseOver={() => {setSelectedProject(i)}}
@@ -43,5 +44,7 @@ function Title({data, setSelectedProject}: any) {
                 </p>
             </div>
         </div>
+        
+      
     )
 }

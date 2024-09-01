@@ -34,6 +34,76 @@ const data = [
         title: "NFL",
         description: "Explored the Future of Fantasy Football while being in a country where football means a total different sport.",
         speed: 0.8
+    },
+        {
+        title: "Carnival",
+        description: "Designed the future of the Carnival Cruise experience without ever being on a cruise.",
+        speed: 0.8
+    },
+    {
+        title: "FIFA",
+        description: "Designed the future of the FIFA World Cup experience without being a soccer fan.",
+        speed: 0.8
+    },
+    {
+        title: "MGM",
+        description: "Designed the future of the MGM Grand experience without ever being in Las Vegas.",
+        speed: 0.8
+    },
+    {
+        title: "Nike",
+        description: "Designed the future of the Nike Ecosystem without being a fan of running.",
+        speed: 0.8
+    },
+        {
+        title: "NBA",
+        description: "Designed the future of the NBA experience without being a basketball fan.",
+        speed: 0.8
+    },
+    {
+        title: "Pepsi",
+        description: "Designed the future of the Pepsi experience without being a soda drinker.",
+        speed: 0.8
+    },
+    {
+        title: "Audi",
+        description: "Designed the future of the Audi experience without ever owning an Audi.",
+        speed: 0.8
+    },
+    {
+        title: "VW",
+        description: "Designed the future of the VW experience without ever owning a VW.",
+        speed: 0.8
+    },
+    {
+        title: "HBO",
+        description: "Designed the future of the HBO experience without being a fan of TV.",
+        speed: 0.8
+    },
+    {
+        title: "Disney",
+        description: "Designed the future of the Disney experience without being a fan of Disney.",
+        speed: 0.8
+    },
+    {
+        title: "Amazon",
+        description: "Designed the future of the Amazon experience without being a fan of shopping.",
+        speed: 0.8
+    },
+    {
+        title: "Google",
+        description: "Designed the future of the Google experience without being a fan of search.",
+        speed: 0.8
+    },
+    {
+        title: "Apple",
+        description: "Designed the future of the Apple experience without being a fan of tech.",
+        speed: 0.8
+    },
+    {
+        title: "Microsoft",
+        description: "Designed the future of the Microsoft experience without being a fan of Windows.",
+        speed: 0.8
     }
 ]
 

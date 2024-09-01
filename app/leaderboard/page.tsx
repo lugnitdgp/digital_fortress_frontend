@@ -7,7 +7,8 @@ import { FaGithub, FaInstagram, FaLinkedin, FaGoogle } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FloatingDock } from "@/components/floatingdock/floatingicons";
 import Positions from "@/components/Positions/Positions";
-import Tiles from "@/components/projects/index";
+import Projects from "@/components/projects/index";
+import SmoothScroll from "@/components/smoothScroll";
 
 export default function Leaderboard(){
     const [loading, setLoading] = useState(true);
@@ -51,9 +52,11 @@ export default function Leaderboard(){
           ) : (
             <>
               <Navbar />
-              <div style={{display:"flex" , flexDirection:"column" , justifyContent : "center" , alignItems : "center" , height: "100%"}}>
+              <div style={{ display:"flex" , flexDirection:"column" , justifyContent : "center" , alignItems : "center" , height: "60%" , gap:"1rem"}}>
                 <Positions />
-                {/* <Tiles /> */}
+                <SmoothScroll>
+                <Projects />
+                 </SmoothScroll>
               </div>
               
               <div className={styles.login}></div>
