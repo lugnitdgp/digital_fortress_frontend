@@ -28,6 +28,9 @@
     height: 15rem;
     box-shadow: 0 0 20px #FFD700;
     border: 2px solid #FFD700;
+    background-color: rgba(255, 215, 0 , 0.2);
+    transition: all 0.3s ease-in-out;
+
 }
 
 .first:hover{
@@ -36,8 +39,11 @@
 
 .second{
     position: relative;
+    border-radius: 10px;
     box-shadow: 0 0 20px #C0C0C0;
     border: 2px solid #C0C0C0;
+    background-color: rgba(192, 192, 192 , 0.5) ;
+    transition: all 0.3s ease-in-out;
 }
 
 .second:hover{
@@ -47,6 +53,7 @@
 .third{
     position: relative;
     box-shadow: 0 0 20px #cd7f32;
+    background-color: rgba(228, 255, 180 , 0.5);
     border: 2px solid #cd7f32;
 }
 
@@ -55,15 +62,16 @@
 }
 
 
-.canvas{
+.canvasContainer{
     border-radius: 10px;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 30rem;
+    height: 12rem;
     z-index: 0;
 }
 
 .userInfo{
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
