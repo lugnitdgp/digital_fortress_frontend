@@ -9,6 +9,7 @@ import { FloatingDock } from "@/components/floatingdock/floatingicons";
 import Positions from "@/components/Positions/Positions";
 import Projects from "@/components/projects/index";
 import SmoothScroll from "@/components/smoothScroll";
+import Tiles from "@/components/ranktiles/page";
 
 export default function Leaderboard(){
     const [loading, setLoading] = useState(true);
@@ -54,9 +55,10 @@ export default function Leaderboard(){
               <Navbar />
               <div style={{ display:"flex" , flexDirection:"column" , justifyContent : "center" , alignItems : "center" , height: "60%" , gap:"1rem"}}>
                 <Positions />
-                <SmoothScroll>
-                <Projects />
-                 </SmoothScroll>
+                {/* <SmoothScroll>
+                  <Projects />
+                </SmoothScroll> */}
+                <Tiles />
               </div>
               
               <div className={styles.login}></div>
