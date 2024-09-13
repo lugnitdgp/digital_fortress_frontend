@@ -8,14 +8,33 @@ import { FaGithub, FaInstagram, FaLinkedin, FaGoogle } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FloatingDock } from "@/components/floatingdock/floatingicons";
 import { Meteors } from "@/components/Meteor/meteor";
+import { useSession } from "next-auth/react"
+import { signIn, signOut } from 'next-auth/react';
+
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [textDigital, setTextDigital] = useState("DIGITAL");
   const [textFortress, setTextFortress] = useState("FORTRESS");
   const [showMeteors, setShowMeteors] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  const { data: session } = useSession();
 
   useEffect(() => {
+
+    const signedIn = async () => {
+      console.log(session)
+      if(session){
+        setIsSignedIn(true)
+      }
+      else{
+        setIsSignedIn(false)
+      }
+    }
+
+    signedIn();
+
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2500);
@@ -28,11 +47,19 @@ export default function Home() {
     }
   }, [loading]);
 
+  const handleSignIn = () => {
+    signIn('google');
+  };
+
+  const handleSignOut = () => {
+    signOut();
+  }
+
   const animateText = () => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let frame = 0;
 
-    const randomizeText = (txt : string) => {
+    const randomizeText = (txt: string) => {
       return txt
         .split("")
         .map(() => chars[Math.floor(Math.random() * chars.length)])
@@ -51,7 +78,7 @@ export default function Home() {
         setTextFortress("FORTRESS");
       }
       setTimeout(() => {
-        setShowMeteors(true); 
+        setShowMeteors(true);
       }, 1140);
     }, 40);
   };
@@ -85,7 +112,7 @@ export default function Home() {
         <Loader />
       ) : (
         <>
-       {showMeteors && <Meteors className={styles.meteor} />}
+          {showMeteors && <Meteors className={styles.meteor} />}
           <Navbar />
           <div className={styles.head}>
             <h1 className={styles.animatedText}>
@@ -94,15 +121,23 @@ export default function Home() {
               <span className={styles.fortressText}  >{textFortress}</span>
             </h1>
           </div>
-          {showMeteors &&  <div className={styles.backbutton}>
-          <FaGoogle size={30}/>
+          {!isSignedIn ? <div className={styles.backbutton}>
+            <FaGoogle size={30} />
             <div className={styles.buttonContainer1}>
-              <button id='work' type="button" name="Hover" className={styles.iconButton}>
-                <FaGoogle size={27}/>
+              <button id='work' type="button" name="Hover" className={styles.iconButton} onClick={handleSignIn}>
+                <FaGoogle size={27} />
               </button>
             </div>
-          </div>}
-         
+          </div> : 
+          <div className={styles.backbutton}>
+          Sign Out
+          <div className={styles.buttonContainer1}>
+            <button id='work' type="button" name="Hover" className={styles.iconButton} onClick={handleSignIn}>
+              Sign Out
+            </button>
+          </div>
+        </div>}
+
           <div className={styles.Footer}>
             <h1>CREATED BY GNU/LINUX USERS' GROUP</h1>
             <FloatingDock items={socialMediaItems} />
