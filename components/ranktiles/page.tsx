@@ -1,16 +1,18 @@
 import React, { useRef } from 'react';
 import styles from "./ranktiles.module.scss";
+import leaderboard from "@/data.json";
 
 export default function Tiles() {
-  const data = [
-    { title: "Ford", rank: "1" },
-    { title: "UFC", rank: "2" },
-    { title: "Lincoln", rank: "3" },
-    { title: "Royal Caribbean", rank: "4" },
-    { title: "Sleepiq", rank: "5" },
-    { title: "NFL", rank: "6" },
-    { title: "Nike", rank: "7" },
-  ];
+  // const data = [
+  //   { title: "Ford", rank: "1" },
+  //   { title: "UFC", rank: "2" },
+  //   { title: "Lincoln", rank: "3" },
+  //   { title: "Royal Caribbean", rank: "4" },
+  //   { title: "Sleepiq", rank: "5" },
+  //   { title: "NFL", rank: "6" },
+  //   { title: "Nike", rank: "7" },
+  // ];
+  const data = leaderboard.splice(0, 3);
 
   const spanRef = useRef<HTMLSpanElement>(null);
 
@@ -47,8 +49,8 @@ export default function Tiles() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseOut}
         >
-          <p>{item.title}</p>
-          <p>{item.rank}</p>
+          <p>{item.username}</p>
+          <p>{data.indexOf(item) + 4}</p>
         </div>
       ))}
     </div>

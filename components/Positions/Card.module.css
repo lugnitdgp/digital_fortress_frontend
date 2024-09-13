@@ -1,0 +1,101 @@
+.leaderboardItem{
+    font-family: "Audiowide", sans-serif;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    width: 30rem;
+    height: 12rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all 0.3s;
+}
+
+.first{
+    position: relative;
+    width: 30rem;
+    height: 15rem;
+    box-shadow: 0 0 20px #FFD700;
+    border: 2px solid #FFD700;
+    background-color: rgba(255, 215, 0 , 0.2);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.first:hover{
+    background-color: #FFD700;
+}
+
+.second{
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #C0C0C0;
+    border: 2px solid #C0C0C0;
+    background-color: rgba(192, 192, 192 , 0.5) ;
+    transition: all 0.3s ease-in-out;
+}
+
+.second:hover{
+    background-color: #C0C0C0;
+}
+
+.third{
+    position: relative;
+    box-shadow: 0 0 20px #cd7f32;
+    background-color: rgba(228, 255, 180 , 0.5);
+    border: 2px solid #cd7f32;
+}
+
+.third:hover{
+    background-color: #cd7f32;
+}
+
+
+.canvasContainer{
+    border-radius: 10px;
+    position: absolute;
+    width: 30rem;
+    z-index: 0;
+}
+
+.userInfo{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 10;
+    color: white;
+}
+
+
+.position{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.user{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.avatar{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+
+.name{
+    font-size: 1.2rem;
+    font-family: "Lato" , sans-serif;
+    font-weight: 500;
+}
+
+.score{
+    font-size: 1.2rem;
+    font-family: "Lato" , sans-serif;
+    font-weight: 400;
+}

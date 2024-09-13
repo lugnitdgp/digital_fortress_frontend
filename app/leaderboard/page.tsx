@@ -7,14 +7,10 @@ import { FaGithub, FaInstagram, FaLinkedin, FaGoogle } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FloatingDock } from "@/components/floatingdock/floatingicons";
 import Positions from "@/components/Positions/Positions";
-import Projects from "@/components/projects/index";
-import SmoothScroll from "@/components/smoothScroll";
 import Tiles from "@/components/ranktiles/page";
 
 export default function Leaderboard(){
     const [loading, setLoading] = useState(true);
-    const [textDigital, setTextDigital] = useState("DIGITAL");
-    const [textFortress, setTextFortress] = useState("FORTRESS");
 
     useEffect(() => {
         const timer = setTimeout(() => {
