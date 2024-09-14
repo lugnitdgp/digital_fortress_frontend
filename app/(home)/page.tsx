@@ -8,24 +8,29 @@ import { FaGithub, FaInstagram, FaLinkedin, FaGoogle } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FloatingDock } from "@/components/floatingdock/floatingicons";
 import { Meteors } from "@/components/Meteor/meteor";
-import { useSession } from "next-auth/react"
+import { useSession, getSession } from "next-auth/react";
 import { signIn, signOut } from 'next-auth/react';
+import handleSignIn from "@/components/GoogleSignIn/googleSignIn";
+import handleLogOut from "@/components/Logout/Logout";
+import axios from 'axios';
 
 
 export default function Home() {
+
   const [loading, setLoading] = useState(true);
   const [textDigital, setTextDigital] = useState("DIGITAL");
   const [textFortress, setTextFortress] = useState("FORTRESS");
   const [showMeteors, setShowMeteors] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
 
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
 
     const signedIn = async () => {
       console.log(session)
       if(session){
+        // await backendSignIn();
         setIsSignedIn(true)
       }
       else{
@@ -46,10 +51,6 @@ export default function Home() {
       animateText();
     }
   }, [loading]);
-
-  const handleSignIn = () => {
-    signIn('google');
-  };
 
   const handleSignOut = () => {
     signOut();
@@ -124,15 +125,15 @@ export default function Home() {
           {!isSignedIn ? <div className={styles.backbutton}>
             <FaGoogle size={30} />
             <div className={styles.buttonContainer1}>
-              <button id='work' type="button" name="Hover" className={styles.iconButton} onClick={handleSignIn}>
-                <FaGoogle size={27} />
-              </button>
+                <button id='work' type="button" name="Hover" className={styles.iconButton} onClick={async (event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) =>{event.preventDefault(); await handleSignIn();}}>
+                    <FaGoogle size={27} />
+                </button>
             </div>
-          </div> : 
+        </div> : 
           <div className={styles.backbutton}>
           Sign Out
           <div className={styles.buttonContainer1}>
-            <button id='work' type="button" name="Hover" className={styles.iconButton} onClick={handleSignIn}>
+            <button id='work' type="button" name="Hover" className={styles.iconButton} onClick={async (event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) =>{event.preventDefault(); await handleLogOut();}}>
               Sign Out
             </button>
           </div>
