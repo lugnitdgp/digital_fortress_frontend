@@ -9,10 +9,8 @@ import { FaSquareFacebook } from "react-icons/fa6";
 import { FloatingDock } from "@/components/floatingdock/floatingicons";
 import { Meteors } from "@/components/Meteor/meteor";
 import { useSession, getSession } from "next-auth/react";
-import { signIn, signOut } from 'next-auth/react';
 import handleSignIn from "@/components/GoogleSignIn/googleSignIn";
 import handleLogOut from "@/components/Logout/Logout";
-import axios from 'axios';
 
 
 export default function Home() {
@@ -51,10 +49,6 @@ export default function Home() {
       animateText();
     }
   }, [loading]);
-
-  const handleSignOut = () => {
-    signOut();
-  }
 
   const animateText = () => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

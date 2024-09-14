@@ -1,10 +1,6 @@
 "use server"
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import NextAuth, { getServerSession } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import { PrismaClient } from '@prisma/client';
-
-// const prisma = new PrismaClient();
  
 // Configuration options for authentication
 export const handler = NextAuth({
@@ -21,9 +17,7 @@ export const handler = NextAuth({
       return session;
     },
   },
-  // Prisma adapter to connect NextAuth.js with the database
-  // adapter: PrismaAdapter(prisma),
-  // Authentication providers
+
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
