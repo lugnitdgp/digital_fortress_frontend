@@ -51,9 +51,6 @@ export default function Leaderboard(){
               <Navbar />
               <div style={{ display:"flex" , flexDirection:"column" , justifyContent : "center" , alignItems : "center" , height: "60%" , gap:"1rem"}}>
                 <Positions />
-                {/* <SmoothScroll>
-                  <Projects />
-                </SmoothScroll> */}
                 <Tiles />
               </div>
               

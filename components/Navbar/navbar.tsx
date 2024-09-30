@@ -37,24 +37,25 @@ export default function Navbar() {
         <StickyCursor stickyElement={stickyElement} />
         <div className={styles.Options}>
           <li className={styles.contentitem}>
-            <a href="#" className={styles.linklinkhelike}>
+            <Link href="/" className={styles.linklinkhelike}>
               <span>HOME</span>
-            </a>
+            </Link>
           </li>
           <li className={styles.contentitem}>
-            <a href="#" className={styles.linklinkhelike}>
+            <Link href="#" className={styles.linklinkhelike}>
               <span>RULES</span>
-            </a>
+            </Link>
           </li>
           <li className={styles.contentitem}>
             <Link href="/leaderboard" className={styles.linklinkhelike}>
               <span>LEADERBOARD</span>
             </Link>
           </li>
-
-          {/* <h1>HOME</h1>
-          <h1>RULES</h1>
-          <h1>LEADERBOARD</h1> */}
+          <li className={styles.contentitem}>
+            <Link href="/quiz" className={styles.linklinkhelike}>
+              <span>QUIZ</span>
+            </Link>
+          </li>
         </div>
       </div>
       <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ""}`}>
