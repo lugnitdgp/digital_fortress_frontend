@@ -1,16 +1,15 @@
-import Image from "next/image";
 "use client";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./page.module.scss";
-import { useState, useEffect } from "react";
 import Loader from "@/components/3Dloader/Loader";
 import Navbar from "@/components/Navbar/navbar";
 import { FaGithub, FaInstagram, FaLinkedin, FaGoogle } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FloatingDock } from "@/components/floatingdock/floatingicons";
 import { Meteors } from "@/components/Meteor/meteor";
-import { useSession } from "next-auth/react"
-import { signIn, signOut } from 'next-auth/react';
-
+import { useSession, signIn, signOut } from "next-auth/react";
+import { MyContext } from "@/context/contextapi";
+import Rulescard from "@/components/Rulescard/rulescard";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -18,28 +17,23 @@ export default function Home() {
   const [textFortress, setTextFortress] = useState("FORTRESS");
   const [showMeteors, setShowMeteors] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const { rulesopen, setRulesopen } = useContext(MyContext);
 
   const { data: session } = useSession();
 
   useEffect(() => {
+    const checkSession = async () => {
+      setIsSignedIn(!!session);
+    };
 
-    const signedIn = async () => {
-      console.log(session)
-      if(session){
-        setIsSignedIn(true)
-      }
-      else{
-        setIsSignedIn(false)
-      }
-    }
-
-    signedIn();
+    checkSession();
 
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2500);
+
     return () => clearTimeout(timer);
-  }, []);
+  }, [session]);
 
   useEffect(() => {
     if (!loading) {
@@ -47,19 +41,11 @@ export default function Home() {
     }
   }, [loading]);
 
-  const handleSignIn = () => {
-    signIn('google');
-  };
-
-  const handleSignOut = () => {
-    signOut();
-  }
-
   const animateText = () => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const chars = "疊法ఉॐ॰আ৩옥JরQUᄌX엽";
     let frame = 0;
 
-    const randomizeText = (txt: string) => {
+    const randomizeText = (txt) => {
       return txt
         .split("")
         .map(() => chars[Math.floor(Math.random() * chars.length)])
@@ -67,8 +53,7 @@ export default function Home() {
     };
 
     const intervalId = setInterval(() => {
-      if (frame < 30) {
-        // Number of frames for the animation
+      if (frame < 14) {
         setTextDigital(randomizeText(textDigital));
         setTextFortress(randomizeText(textFortress));
         frame++;
@@ -76,11 +61,17 @@ export default function Home() {
         clearInterval(intervalId);
         setTextDigital("DIGITAL");
         setTextFortress("FORTRESS");
-      }
-      setTimeout(() => {
         setShowMeteors(true);
-      }, 1140);
-    }, 40);
+      }
+    }, 140);
+  };
+
+  const handleSignIn = () => {
+    signIn('google');
+  };
+
+  const handleSignOut = () => {
+    signOut();
   };
 
   const socialMediaItems = [
@@ -113,31 +104,52 @@ export default function Home() {
       ) : (
         <>
           {showMeteors && <Meteors className={styles.meteor} />}
-          <Navbar />
-          <div className={styles.head}>
-            <h1 className={styles.animatedText}>
-              <span className={styles.digitalText} >{textDigital}</span>
-              <span className={styles.space}> </span>
-              <span className={styles.fortressText}  >{textFortress}</span>
-            </h1>
-          </div>
-          {!isSignedIn ? <div className={styles.backbutton}>
-            <FaGoogle size={30} />
-            <div className={styles.buttonContainer1}>
-              <button id='work' type="button" name="Hover" className={styles.iconButton} onClick={handleSignIn}>
-                <FaGoogle size={27} />
-              </button>
+          <div className={styles.top}>
+            <Navbar />
+            <div className={styles.head}>
+              <h1 className={styles.animatedText}>
+                <span className={styles.digitalText}>{textDigital}</span>
+                <span className={styles.space}> </span>
+                <span className={styles.fortressText}>{textFortress}</span>
+              </h1>
             </div>
-          </div> : 
-          <div className={styles.backbutton}>
-          Sign Out
-          <div className={styles.buttonContainer1}>
-            <button id='work' type="button" name="Hover" className={styles.iconButton} onClick={handleSignIn}>
-              Sign Out
-            </button>
           </div>
-        </div>}
 
+          {rulesopen ? (
+            <Rulescard />
+          ) : (
+            !isSignedIn ? (
+              <div className={styles.backbutton}>
+                <FaGoogle size={30} />
+                <div className={styles.buttonContainer1}>
+                  <button
+                    id='work'
+                    type="button"
+                    name="Hover"
+                    className={styles.iconButton}
+                    onClick={handleSignIn}
+                  >
+                    <FaGoogle size={27} />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.backbutton}>
+                Sign Out
+                <div className={styles.buttonContainer1}>
+                  <button
+                    id='work'
+                    type="button"
+                    name="Hover"
+                    className={styles.iconButton}
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              </div>
+            )
+          )}
           <div className={styles.Footer}>
             <h1>CREATED BY GNU/LINUX USERS' GROUP</h1>
             <FloatingDock items={socialMediaItems} />

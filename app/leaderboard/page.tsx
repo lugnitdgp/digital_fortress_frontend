@@ -11,63 +11,58 @@ import Projects from "@/components/projects/index";
 import SmoothScroll from "@/components/smoothScroll";
 import Tiles from "@/components/ranktiles/page";
 
-export default function Leaderboard(){
-    const [loading, setLoading] = useState(true);
-    const [textDigital, setTextDigital] = useState("DIGITAL");
-    const [textFortress, setTextFortress] = useState("FORTRESS");
+export default function Leaderboard() {
+  const [loading, setLoading] = useState(true);
+  const [textDigital, setTextDigital] = useState("DIGITAL");
+  const [textFortress, setTextFortress] = useState("FORTRESS");
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, 2500);
-        return () => clearTimeout(timer);
-      }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
 
-    const socialMediaItems = [
-        {
-          title: "Facebook",
-          icon: <FaSquareFacebook style={{ color: "black" }} />,
-          href: "https://www.facebook.com/yourprofile",
-        },
-        {
-          title: "GitHub",
-          icon: <FaGithub style={{ color: "black" }} />,
-          href: "https://github.com/yourprofile",
-        },
-        {
-          title: "Instagram",
-          icon: <FaInstagram style={{ color: "black" }} />,
-          href: "https://www.instagram.com/yourprofile",
-        },
-        {
-          title: "LinkedIn",
-          icon: <FaLinkedin style={{ color: "black" }} />,
-          href: "https://www.linkedin.com/in/yourprofile",
-        },
-      ];
+  const socialMediaItems = [
+    {
+      title: "Facebook",
+      icon: <FaSquareFacebook style={{ color: "black" }} />,
+      href: "https://www.facebook.com/yourprofile",
+    },
+    {
+      title: "GitHub",
+      icon: <FaGithub style={{ color: "black" }} />,
+      href: "https://github.com/yourprofile",
+    },
+    {
+      title: "Instagram",
+      icon: <FaInstagram style={{ color: "black" }} />,
+      href: "https://www.instagram.com/yourprofile",
+    },
+    {
+      title: "LinkedIn",
+      icon: <FaLinkedin style={{ color: "black" }} />,
+      href: "https://www.linkedin.com/in/yourprofile",
+    },
+  ];
 
-    return (
-        <main className={styles.main}>
-          {loading ? (
-            <Loader />
-          ) : (
-            <>
-              <Navbar />
-              <div style={{ display:"flex" , flexDirection:"column" , justifyContent : "center" , alignItems : "center" , height: "60%" , gap:"1rem"}}>
-                <Positions />
-                {/* <SmoothScroll>
-                  <Projects />
-                </SmoothScroll> */}
-                <Tiles />
-              </div>
-              
-              <div className={styles.login}></div>
-              <div className={styles.Footer}>
-                <h1>CREATED BY GNU/LINUX USERS' GROUP</h1>
-                <FloatingDock items={socialMediaItems} />
-              </div>
-            </>
-          )}
-        </main>
-      );
+  return (
+    <main className={styles.main}>
+      {loading ? (
+        <Loader />
+      ) : (
+        <><div className={styles.shade}></div>
+          <Navbar />
+          <Positions />
+          <div className={styles.Positions}>
+          <Tiles />
+          </div>
+          <div className={styles.Footer}>
+            <h1>CREATED BY GNU/LINUX USERS' GROUP</h1>
+            <FloatingDock items={socialMediaItems} />
+          </div>
+        </>
+      )}
+    </main>
+  );
 }

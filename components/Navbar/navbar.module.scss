@@ -3,11 +3,10 @@
 .nav {
   height: 60px;
   width: 90%;
-  position: absolute;
+  position: relative; // Change from fixed to relative
   z-index: 1;
   background-color: #ffffff8c;
-  top: 3%;
-  left: 5%;
+  margin: 20px auto; // Center the nav and add margin to create space above it
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -148,6 +147,7 @@
     font-size: 23px;
     transition: color 0.4s; // Transition for color change if needed
     cursor: pointer;
+
     &::before {
       content: '';
       position: absolute;

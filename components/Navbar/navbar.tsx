@@ -1,20 +1,23 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import Header from "../header";
 import StickyCursor from "../stickyCursor/";
 import styles from "./navbar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXing } from "@fortawesome/free-brands-svg-icons"; // Example icon
 import Link from "next/link";
+import { MyContext } from "@/context/contextapi";
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isPulseActive, setIsPulseActive] = useState(false);
   const stickyElement = useRef(null);
-
+  const { rulesopen, setRulesopen } = useContext(MyContext);
   function handleHeaderClick() {
     setIsSidebarOpen(!isSidebarOpen);
   }
-
+ function togglerules(){
+  setRulesopen(!rulesopen)
+ }
   // Use useEffect to trigger pulse effect after ::before effect
   useEffect(() => {
     if (isSidebarOpen) {
@@ -42,7 +45,7 @@ export default function Navbar() {
             </a>
           </li>
           <li className={styles.contentitem}>
-            <a href="#" className={styles.linklinkhelike}>
+            <a className={styles.linklinkhelike} onClick={togglerules}>
               <span>RULES</span>
             </a>
           </li>
@@ -66,13 +69,14 @@ export default function Navbar() {
             onClick={handleHeaderClick}
           />
           <div className={styles.navOptions}>
-            <h1
+            <Link
+              href="#"
               className={`${styles.btn5} ${
                 isPulseActive ? styles.pulseActive : ""
               }`}
             >
-              HOME
-            </h1>
+              <span>HOME</span>
+            </Link>
             <h1
               className={`${styles.btn5} ${
                 isPulseActive ? styles.pulseActive : ""
@@ -80,13 +84,14 @@ export default function Navbar() {
             >
               RULES
             </h1>
-            <h1
+            <Link
+              href="leaderboard"
               className={`${styles.btn5} ${
                 isPulseActive ? styles.pulseActive : ""
               }`}
             >
-              LEADERBOARD
-            </h1>
+              <span>LEADERBOARD</span>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import styles from "./ranktiles.module.scss";
 
 export default function Tiles() {
@@ -9,6 +9,7 @@ export default function Tiles() {
     { title: "Royal Caribbean", rank: "4" },
     { title: "Sleepiq", rank: "5" },
     { title: "NFL", rank: "6" },
+    { title: "Nike", rank: "7" },
     { title: "Nike", rank: "7" },
   ];
 
@@ -41,14 +42,16 @@ export default function Tiles() {
   return (
     <div className={styles.outerDiv}>
       {data.map((item, index) => (
-        <div
-          key={index}
-          className={styles.clippedRectangle}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseOut}
-        >
-          <p>{item.title}</p>
-          <p>{item.rank}</p>
+        <div className={styles.border}>
+          <div
+            key={index}
+            className={styles.clippedRectangle}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseOut}
+          >
+            <p>{item.title}</p>
+            <p>{item.rank}</p>
+          </div>
         </div>
       ))}
     </div>

@@ -6,15 +6,17 @@
 @import url('https://db.onlinewebfonts.com/c/7b625b4facc3b08ddc36375715334f0d?family=prostf');
 @import url('https://db.onlinewebfonts.com/c/e7322a6673613ab13604fadda3d20e56?family=VALORANT');
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
 // Define custom font
 @font-face {
-  font-family: 'BreakTheCode'; // Unique name for the font
-  src: url('../../components/assets/fonts/Breakthecode.ttf') format('truetype'); // Path to font file
+  font-family: 'BreakTheCode'; 
+  src: url('../../components/assets/fonts/Breakthecode.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-// Mixin for buttons (if used)
+// Mixin for buttons
 @mixin button($bcolor, $url, $x1, $y1, $bor, $col) {
   background: $bcolor;
   -webkit-mask: url($url);
@@ -27,49 +29,44 @@
 
 // Main styles
 .main {
-    height: 100vh;
-    width: 100vw;
-    background-image: url('/Extentedbackground.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
   height: 100vh;
   width: 100vw;
   background-image: url('/Extentedbackground.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // Keeps footer at the bottom
+  padding-bottom: 20px; // Adds padding at the bottom
 
   .head {
-    height: 7px;
+    height: 7rem; 
     width: 70%;
     font-size: 6rem;
     color: rgb(204, 248, 179);
     text-shadow: 
-    0 0 5px rgba(212, 255, 0, 0.3),  /* Light yellow-green glow */
-    0 0 8px rgba(212, 255, 0, 0.3),  /* Larger glow */
-    0 0 11px rgba(170, 255, 0, 0.4), /* Even larger glow */
-    0 0 15px rgba(170, 255, 0, 0.4), /* Even larger glow */
-    0 0 19px rgba(153, 255, 0, 0.5), /* Largest glow */
-    0 0 30px rgba(153, 255, 0, 0.5); /* Largest glow */
-    position: absolute;
-    top: 19%;
-    left: 17%;
+      0 0 5px rgba(212, 255, 0, 0.3),
+      0 0 8px rgba(212, 255, 0, 0.3),
+      0 0 11px rgba(170, 255, 0, 0.4),
+      0 0 15px rgba(170, 255, 0, 0.4),
+      0 0 19px rgba(153, 255, 0, 0.5),
+      0 0 30px rgba(153, 255, 0, 0.5);
+    margin: 10px auto; // Margin above the head
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Audiowide', sans-serif; // Apply the custom font here
+    font-family: 'Audiowide', sans-serif;
     white-space: nowrap;
 
     .animatedText {
       display: flex;
+
       .digitalText,
       .fortressText {
         display: inline-block;
         animation: flickerText 1.5s linear;
-        animation-iteration-count: 2; // Flicker only twice
+        animation-iteration-count: 2;
       }
 
       .space {
@@ -79,45 +76,47 @@
     }
   }
 
+  .Positions {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center;
+    width: 80%;
+    gap: 1rem;
+    margin: 0 auto;
+    flex-grow: 1; 
+  }
+
   .Footer {
     height: 120px;
     width: 56%;
     font-size: 25px;
     color: white;
-    position: absolute;
-    bottom: 5%;
-    left: 21%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
+    font-family: 'SUSE', 'Inter', sans-serif;
+    font-weight: 650;
+    margin: 20px auto; 
   }
 
   .backbutton {
-    position: relative;
     height: 75px;
     width: 75px;
     background-color: rgb(238, 255, 0);
-    top: 40%;
-    left: 47%;
-    z-index: 1; // Ensure it's below buttonContainer1
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     border: 6px rgb(21, 255, 0) solid;
+    margin: 20px auto; 
 
     .buttonContainer1 {
-      position: absolute;
-      top: -63px; // Adjust this to move it above the backbutton
-      left: 1;
+      position: relative; 
       width: 75px;
       height: 75px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 6vh;
+      margin: 0 auto;
       overflow: hidden;
       border: 1px solid;
       font-family: 'Lato', sans-serif;
@@ -125,15 +124,14 @@
       transition: 0.5s;
       letter-spacing: 1px;
       border-radius: 50%;
-      z-index: 2; // Ensure it's above the backbutton
+      display: flex; // Center contents
+      align-items: center; // Center vertically
+      justify-content: center; // Center horizontally
 
       button {
-        width: 100%;
-        height: 100%;
+        width: 75px;
+        height: 75px;
         font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        font-size: 11px;
-        letter-spacing: 1px;
         font-weight: bold;
         background: transparent;
         border: none;
@@ -144,9 +142,9 @@
         color: transparent;
 
         svg {
-          width: 24px; // Adjust size as needed
-          height: 24px; // Adjust size as needed
-          color: #fff; // Color of the icon
+          width: 24px; 
+          height: 24px; 
+          color: #fff; 
           -webkit-animation: flickerIcon 1.5s linear infinite;
           animation: flickerIcon 1.5s linear infinite;
         }
@@ -161,21 +159,22 @@
         );
 
         -webkit-animation: ani2 0.7s steps(22) forwards;
-        animation: ani2 0.7s steps(22) forwards;
+        animation: ani2 1.5s steps(30) forwards;
 
         &:hover {
           -webkit-animation: ani 0.7s steps(22) forwards;
           animation: ani 0.7s steps(22) forwards;
 
           svg {
-            -webkit-animation: none; // Stop flickering on hover
-            animation: none; // Stop flickering on hover
+            -webkit-animation: none;
+            animation: none;
           }
         }
       }
     }
   }
 
+  // Keyframes for animations
   @-webkit-keyframes ani {
     from {
       -webkit-mask-position: 0 0;
