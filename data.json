@@ -1,0 +1,12 @@
+[
+    { "username": "Abir", "score": 1000 },
+    { "username": "Akriti", "score" : 900 },
+    { "username": "Ankit", "score" : 800 },
+    { "username": "Arkaprava", "score" : 700 },
+    { "username": "Puja", "score" : 600 },
+    { "username": "Rohit", "score" : 500 },
+    { "username": "Sravan", "score" : 400 },
+    { "username": "Sudhanshu", "score" : 300 },
+    { "username": "Suman", "score" : 200 },
+    { "username": "Vikas", "score" : 100 }
+  ]

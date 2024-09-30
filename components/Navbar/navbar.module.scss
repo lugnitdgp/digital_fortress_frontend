@@ -25,11 +25,13 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap : 0.25rem;
 
     .contentitem {
       list-style: none;
       position: relative;
       overflow: hidden;
+      margin : 0.5rem ;
     }
 
     .linklinkhelike {
